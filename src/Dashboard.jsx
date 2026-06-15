@@ -7,14 +7,12 @@ function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Proteksi halaman: Kalau ga ada token login, usir balik ke halaman login
     const token = localStorage.getItem('token');
     if (!token) {
       navigate('/login');
       return;
     }
 
-    // Ambil data user dari API publik menggunakan Axios sesuai modul bootcamp
     axios.get('https://reqres.in/api/users?page=1')
       .then(response => {
         setUsers(response.data.data);
@@ -31,7 +29,7 @@ function Dashboard() {
 
   return (
     <div style={{ backgroundColor: '#121212', color: '#ffffff', minHeight: '100vh', padding: '40px', fontFamily: 'sans-serif' }}>
-      <div style={{ display: 'flex', justifyContent: 'between', alignItems: 'center', borderBottom: '2px solid #2d2d2d', paddingBottom: '20px', marginBottom: '30px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '2px solid #2d2d2d', paddingBottom: '20px', marginBottom: '30px' }}>
         <h1 style={{ color: '#00adb5', margin: 0 }}>Dashboard Anggota</h1>
         <button onClick={handleLogout} style={{
           backgroundColor: '#ff6b6b', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', marginLeft: 'auto'

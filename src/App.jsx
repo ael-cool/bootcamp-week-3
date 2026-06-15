@@ -7,7 +7,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Jalur utama langsung diarahkan ke halaman Login */}
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />

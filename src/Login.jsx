@@ -11,15 +11,14 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Menggunakan API tiruan (ReqRes) yang selalu sukses untuk demo login
       const response = await axios.post('https://reqres.in/api/login', {
-        email: username, // ReqRes butuh format email, ketik asal/email bebas saat tes
+        email: username,
         password: password
       });
 
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
-        navigate('/dashboard'); // Sukses login, langsung lempar ke Dashboard
+        navigate('/dashboard');
       }
     } catch (err) {
       setError('Username atau Password salah! (Gunakan format email untuk username)');
